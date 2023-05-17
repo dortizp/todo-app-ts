@@ -42,7 +42,7 @@
   display: block;
   margin: 0.5em;
 }
-label {
+label,s {
   font-size: 1.2em;
   padding-left: 0.3em;
 }

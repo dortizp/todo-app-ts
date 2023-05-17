@@ -13,7 +13,11 @@ const TodoItem : React.FC<TodoItemProps> = ({todo,toggleComplete}): JSX.Element 
         onChange={()=> toggleComplete(todo)}
         checked={todo.done}
         />
-      <label>{todo.text}</label>  
+        {
+        todo.done
+          ? <s>{todo.text}</s>
+          : <label>{todo.text}</label>
+        }
     </div>
   )
 }
