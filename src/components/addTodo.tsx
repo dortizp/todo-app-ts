@@ -1,5 +1,6 @@
 import { useState } from "react"
-const AddTodo = (props) => {
+import { Todo } from "../types"
+const AddTodo = (props: any) => {
   const [todo, setTodo] = useState("") 
 
   function handleAddTodo () {
@@ -8,10 +9,14 @@ const AddTodo = (props) => {
       text: todo,
       done: false
     }
-    props.addTodo(current => [...current, newTodo])
+    props.addTodo((current : Todo[]) => [...current, newTodo])
     setTodo("")
   }
 
+  const handleKeyDown = (e:React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter")
+      handleAddTodo()
+  }
 
   return (
     <div className="addTodoBar">
@@ -20,6 +25,7 @@ const AddTodo = (props) => {
         placeholder="new todo ..."
         value = {todo}
         onChange={(e) => setTodo(e.target.value)}
+        onKeyDown={handleKeyDown}
         />
       <button
         onClick={handleAddTodo}
