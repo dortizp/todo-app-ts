@@ -24,6 +24,7 @@ function App() {
         }
       ]
   const [todoList, setTodoList] = useState(initialTodos)
+  const [checkAll, setCheckAll] = useState(false)
   const lastId = todoList.length 
   const doneAll = (todos:Todo[]) : DoneTodo[] => {
     return todos.map(todo => ({
@@ -31,6 +32,14 @@ function App() {
       done: true
     }))
   }
+  const doneNone = (todos:Todo[]) : Todo[] => {
+    return todos.map(todo => ({
+      ...todo,
+      done: false 
+    }))
+  }
+
+
   const toggleComplete : ToggleComplete = (selectedTodo) => {
     const updatedTodos = todoList.map(todo => {
       if (todo === selectedTodo) {
@@ -44,6 +53,18 @@ function App() {
   const handleCheckAll = (e:React.MouseEvent<HTMLButtonElement>) => {
     const updatedTodos = doneAll(todoList)
     setTodoList(updatedTodos)
+    setCheckAll(true)
+  }
+  const handleUncheckAll = (e:React.MouseEvent<HTMLButtonElement>) => {
+    const updatedTodos = doneNone(todoList)
+    setTodoList(updatedTodos)
+    setCheckAll(false)
+  }
+
+  const toggleAll = (e:React.MouseEvent<HTMLButtonElement>) => {
+    if (checkAll) 
+      handleUncheckAll(e)
+    else handleCheckAll(e)
   }
 
   return (
@@ -52,7 +73,12 @@ function App() {
         <AddTodo addTodo={setTodoList} lastId={lastId}/>
      </header>
      <main className="container">
-      <button onClick={handleCheckAll}>Check all</button>
+      <button onClick={toggleAll}>
+        {!checkAll
+          ? "Check all"
+          : "Uncheck all"
+        }
+        </button>
       <TodoList todos={todoList} toggleComplete={toggleComplete}/>
      </main>
     </div>
