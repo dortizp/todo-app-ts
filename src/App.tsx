@@ -3,7 +3,7 @@ import './App.css';
 import { TodoList } from './components/todoList';
 import { AddTodo } from "./components/addTodo"
 import { useState } from "react"
-import {DoneTodo, Todo, ToggleComplete} from "./types"
+import {DoneTodo, Todo, ToggleComplete, DeleteTodo} from "./types"
 
 function App() {
   const initialTodos:Todo[] = [
@@ -50,6 +50,12 @@ function App() {
     setTodoList(updatedTodos)
   }
 
+  const deleteTodo : DeleteTodo = (selectedTodo) => {
+    const updatedTodos = todoList.filter(todo => todo.id !== selectedTodo.id)
+     
+    setTodoList(updatedTodos)
+  }
+
   const handleCheckAll = (e:React.MouseEvent<HTMLButtonElement>) => {
     const updatedTodos = doneAll(todoList)
     setTodoList(updatedTodos)
@@ -79,7 +85,7 @@ function App() {
           : "Uncheck all"
         }
         </button>
-      <TodoList todos={todoList} toggleComplete={toggleComplete}/>
+      <TodoList todos={todoList} toggleComplete={toggleComplete} deleteTodo={deleteTodo}/>
      </main>
     </div>
   );

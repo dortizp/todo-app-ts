@@ -11,3 +11,4 @@ export type DoneTodo = {
 }
 
 export type ToggleComplete = (selectedTodo: Todo) => void;
+export type DeleteTodo = (selectedTodo: Todo) => void;
