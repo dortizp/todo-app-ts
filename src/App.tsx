@@ -2,8 +2,19 @@ import React, { ChangeEventHandler } from 'react';
 import './App.css';
 import { TodoList } from './components/todoList';
 import { AddTodo } from "./components/addTodo"
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import {DoneTodo, Todo, ToggleComplete, DeleteTodo} from "./types"
+const confetti = require("canvas-confetti") 
+
+declare function create(
+  options?: ConfettiOptions | null,
+): (options?: ConfettiOptions | null) => void;
+
+interface ConfettiOptions {
+  particleCount?: number;
+  spread?: number;
+}
+
 
 function App() {
   const initialTodos:Todo[] = [
@@ -73,6 +84,30 @@ function App() {
     else handleCheckAll(e)
   }
 
+  const cheers = () => {
+    console.log('cheers!')
+    let canvas = document.getElementById('my-canvas') as HTMLCanvasElement
+    let ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const confettiConfig: ConfettiOptions = {
+      particleCount: 100,
+      spread: 90,
+      // Add other configuration properties as needed
+    };
+  
+    const throwConfetti = confetti.create(canvas,confettiConfig);
+    throwConfetti();
+  }
+
+  useEffect(()=> {
+      if (todoList.every(todo => todo.done)) {
+        cheers()
+      }
+  }, todoList)
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -87,6 +122,9 @@ function App() {
         </button>
       <TodoList todos={todoList} toggleComplete={toggleComplete} deleteTodo={deleteTodo}/>
      </main>
+     <div id="canvas-container">
+      <canvas id="my-canvas"></canvas>
+     </div>
     </div>
   );
 }

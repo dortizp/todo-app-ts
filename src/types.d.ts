@@ -12,3 +12,17 @@ export type DoneTodo = {
 
 export type ToggleComplete = (selectedTodo: Todo) => void;
 export type DeleteTodo = (selectedTodo: Todo) => void;
+
+// typings.d.ts or types.d.ts
+
+declare module 'canvas-confetti' {
+  export function create(
+    options?: ConfettiOptions | null,
+  ): (options?: ConfettiOptions | null) => void;
+
+  export interface ConfettiOptions {
+    particleCount?: number;
+    spread?: number;
+    // Add other properties as needed
+  }
+}
