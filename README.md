@@ -1,6 +1,4 @@
-# Repository Name
-
-[Repository Name]
+# My Todo app
 
 ## Description
 
@@ -13,13 +11,13 @@ To run the application locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone [repository-url]
+   git clone https://github.com/dortizp/todo-app-ts.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd [repository-name]
+   cd todo-app-ts
    ```
 
 3. Install the dependencies:
@@ -27,8 +25,6 @@ To run the application locally, follow these steps:
    ```bash
    npm install
    ```
-
-   **Note: Node.js version 14.0.0 or higher is required. If you don't have Node.js installed, you can download it from the [official website](https://nodejs.org/).**
 
 4. Start the development server:
 
@@ -64,6 +60,8 @@ To run the application locally, follow these steps:
 This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
+
+To learn React, check out the [React documentation](https://reactjs.org/).
 
 - [Confetti](https://github.com/catdad/canvas-confetti) library for the confetti animation.
 - [React](https://reactjs.org/) library for building the user interface.
