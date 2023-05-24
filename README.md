@@ -25,7 +25,7 @@ To run the application locally, follow these steps:
    ```bash
    npm install
    ```
-
+   Note: Node.js version 14.0.0 or higher is required. If you don't have Node.js installed, you can download it from the official website: https://nodejs.org/
 4. Start the development server:
 
    ```bash
