@@ -59,9 +59,10 @@ To run the application locally, follow these steps:
 
 This project is licensed under the [MIT License](LICENSE).
 
-## Acknowledgements
+## Libraries
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
 - [Confetti](https://github.com/catdad/canvas-confetti) library for the confetti animation.
 - [React](https://reactjs.org/) library for building the user interface.
+- [Material UI](https://mui.com) library is an open-source React component library that implements Google's Material Design.
+
