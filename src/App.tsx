@@ -1,3 +1,4 @@
+import Button from '@mui/material/Button';
 import React, { ChangeEventHandler } from 'react';
 import './App.css';
 import { TodoList } from './components/todoList';
@@ -94,7 +95,6 @@ function App() {
     const confettiConfig: ConfettiOptions = {
       particleCount: 100,
       spread: 90,
-      // Add other configuration properties as needed
     };
   
     const throwConfetti = confetti.create(canvas,confettiConfig);
@@ -114,12 +114,12 @@ function App() {
         <AddTodo addTodo={setTodoList} lastId={lastId}/>
      </header>
      <main className="container">
-      <button onClick={toggleAll}>
+      <Button variant="outlined" onClick={toggleAll}>
         {!checkAll
           ? "Check all"
           : "Uncheck all"
         }
-        </button>
+        </Button>
       <TodoList todos={todoList} toggleComplete={toggleComplete} deleteTodo={deleteTodo}/>
      </main>
      <div id="canvas-container">

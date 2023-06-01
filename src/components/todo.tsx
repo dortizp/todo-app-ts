@@ -1,4 +1,6 @@
 import {Todo,ToggleComplete, DeleteTodo} from "../types"
+import { Checkbox } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 interface TodoItemProps  {
   todo: Todo;
@@ -10,8 +12,7 @@ interface TodoItemProps  {
 const TodoItem : React.FC<TodoItemProps> = ({todo,toggleComplete, deleteTodo}): JSX.Element =>  {
   return (
     <div className="row">
-      <input 
-        type="checkbox"
+      <Checkbox 
         onChange={()=> toggleComplete(todo)}
         checked={todo.done}
         />
@@ -20,11 +21,10 @@ const TodoItem : React.FC<TodoItemProps> = ({todo,toggleComplete, deleteTodo}): 
           ? <s>{todo.text}</s>
           : <label>{todo.text}</label>
         }
-      {/* <div> */}
-        <label 
-        onClick={()=>deleteTodo(todo)}
-        >X</label>
-      {/* </div> */}
+        <DeleteIcon 
+          color="primary" 
+          onClick={()=>deleteTodo(todo)}
+        />
     </div>
   )
 }

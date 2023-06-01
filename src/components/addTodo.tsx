@@ -1,4 +1,6 @@
 import { useState } from "react"
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import { Todo } from "../types"
 const AddTodo = (props: any) => {
   const [todo, setTodo] = useState("") 
@@ -20,17 +22,22 @@ const AddTodo = (props: any) => {
 
   return (
     <div className="addTodoBar">
-      <input 
-        type="text" 
-        placeholder="new todo ..."
+{/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
+{/* <TextField id="filled-basic" label="Filled" variant="filled" /> */}
+{/* <TextField id="standard-basic" label="Standard" variant="standard" /> */}
+      <TextField 
+        id="outlined-basic"
+        variant="filled"
+        label="new todo"
         value = {todo}
         onChange={(e) => setTodo(e.target.value)}
         onKeyDown={handleKeyDown}
         />
-      <button
+      <Button
+        variant = "contained"
         onClick={handleAddTodo}
       >Add
-      </button>
+      </Button>
     </div>
   )
 }
