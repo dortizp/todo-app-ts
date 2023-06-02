@@ -10,8 +10,17 @@ export type DoneTodo = {
   done: true 
 }
 
-export type ToggleComplete = (selectedTodo: Todo) => void;
-export type DeleteTodo = (selectedTodo: Todo) => void;
+export type ToggleComplete = (
+  selectedTodo: Todo,
+  todoList?: Todo[],
+  setTodoList?: React.Dispatch<React.SetStateAction<Todo[]>>
+) => void;
+
+export type DeleteTodo = (
+  selectedTodo: Todo,
+  todoList?: Todo[],
+  setTodoList?: React.Dispatch<React.SetStateAction<Todo[]>>
+) => void;
 
 // typings.d.ts or types.d.ts
 
