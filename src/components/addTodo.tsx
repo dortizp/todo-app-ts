@@ -22,19 +22,24 @@ const AddTodo = (props: any) => {
 
   return (
     <div className="addTodoBar">
-      <TextField 
-        id="outlined-basic"
-        variant="filled"
-        label="new todo"
-        value = {todo}
-        onChange={(e) => setTodo(e.target.value)}
-        onKeyDown={handleKeyDown}
-        />
-      <Button
-        variant = "contained"
-        onClick={handleAddTodo}
-      >Add
-      </Button>
+      <div className="input">
+        <TextField 
+          id="outlined-basic"
+          // variant="filled"
+          label="Add new todo"
+          value = {todo}
+          onChange={(e) => setTodo(e.target.value)}
+          onKeyDown={handleKeyDown}
+          fullWidth
+          />
+      </div>
+      <div>
+        <Button
+          variant = "contained"
+          onClick={handleAddTodo}
+        >Add
+        </Button>
+      </div>
     </div>
   )
 }

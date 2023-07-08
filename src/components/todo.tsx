@@ -11,20 +11,24 @@ interface TodoItemProps  {
 
 const TodoItem : React.FC<TodoItemProps> = ({todo,toggleComplete, deleteTodo}): JSX.Element =>  {
   return (
-    <div className="row">
-      <Checkbox 
-        onChange={()=> toggleComplete(todo)}
-        checked={todo.done}
-        />
-        {
-        todo.done
-          ? <s>{todo.text}</s>
-          : <label>{todo.text}</label>
-        }
+    <div className="row-todo">
+      <div>
+        <Checkbox 
+          onChange={()=> toggleComplete(todo)}
+          checked={todo.done}
+          />
+          {
+          todo.done
+            ? <s>{todo.text}</s>
+            : <label>{todo.text}</label>
+          }
+      </div>
+      <div>
         <DeleteIcon 
           color="primary" 
           onClick={()=>deleteTodo(todo)}
         />
+      </div>
     </div>
   )
 }

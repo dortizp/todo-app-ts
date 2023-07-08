@@ -41,21 +41,28 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <AddTodo addTodo={setTodoList} lastId={lastId}/>
-     </header>
-     <main className="container">
-      <Button variant="outlined" onClick={toggleAll}>
-        {!checkAll
-          ? "Check all"
-          : "Uncheck all"
-        }
-        </Button>
-      <TodoList todos={todoList} toggleComplete={toggleComplete} deleteTodo={deleteTodo} setTodoList={setTodoList}/>
-     </main>
-     <div id="canvas-container">
-      <canvas id="my-canvas"></canvas>
-     </div>
+      <div className='container'>
+        <header className="App-header">
+          <span className="title">Todo App</span>
+        </header>
+        <div className="add-todo">
+          <AddTodo addTodo={setTodoList} lastId={lastId}/>
+           </div>
+        <div className="todo-list">
+          <TodoList todos={todoList} toggleComplete={toggleComplete} deleteTodo={deleteTodo} setTodoList={setTodoList}/>
+        </div>
+        <footer>
+          <Button variant="outlined" onClick={toggleAll}>
+            {!checkAll
+              ? "Check all"
+              : "Uncheck all"
+            }
+          </Button>
+        </footer>
+        <div id="canvas-container">
+          <canvas id="my-canvas"></canvas>
+        </div>
+      </div>
     </div>
   );
 }
